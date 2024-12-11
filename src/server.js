@@ -6,6 +6,10 @@ app.get("/hello", function (req, res) {
   res.send("Hello World");
 });
 
-app.listen(8000, function () {
-  console.log("Server is running on port 8000");
+app.post("/hello", function (req, res) {
+  res.send("You just called the post method at '/hello'!\n");
+});
+
+app.listen(80, function () {
+  console.log("Server is running on port 80");
 });
