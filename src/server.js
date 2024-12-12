@@ -2,9 +2,11 @@ import express from "express";
 import articlesRoutes from "./routes/articles.js";
 import { connectToDatabase } from "./utils.js";
 import { config } from "dotenv";
+import cors from "cors";
 config();
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.use(articlesRoutes);
 export let db;
