@@ -1,6 +1,8 @@
 import express from "express";
 import articlesRoutes from "./routes/articles.js";
 import { connectToDatabase } from "./utils.js";
+import { config } from "dotenv";
+config();
 const app = express();
 app.use(express.json());
 

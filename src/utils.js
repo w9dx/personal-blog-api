@@ -1,18 +1,18 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 export async function connectToDatabase() {
-  const uri = "mongodb://127.0.0.1";
-  const username = "root";
-  const password = "127221";
-  const db_name = "full-stack-react-db";
+  const uri = process.env.MONGO_URI;
+  // const username = encodeURIComponent(process.env.DB_USERNAME);
+  // const password = encodeURIComponent(process.env.DB_PASSWORD);
+  // const auth = {
+  //   username,
+  //   password,
+  // };
+  const db_name = process.env.DB_NAME;
   const client = new MongoClient(uri, {
     serverApi: {
       version: ServerApiVersion.v1,
       strict: true,
       deprecationErrors: true,
-    },
-    auth: {
-      username,
-      password,
     },
   });
   await client.connect();
