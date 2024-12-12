@@ -1,6 +1,6 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 export async function connectToDatabase() {
-  const uri = process.env.MONGO_URI;
+  const uri = process.env.MONGO_URI ?? "mongodb://root:127221/localhost:27017";
   // const username = encodeURIComponent(process.env.DB_USERNAME);
   // const password = encodeURIComponent(process.env.DB_PASSWORD);
   // const auth = {
