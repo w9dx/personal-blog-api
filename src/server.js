@@ -8,13 +8,15 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const PORT = process.env.PORT || 80;
+
 app.use(articlesRoutes);
 export let db;
 
 async function start() {
   db = await connectToDatabase();
-  app.listen(80, function () {
-    console.log("Server is running on port 80");
+  app.listen(PORT, function () {
+    console.log(`Server is running on port ${PORT}`);
   });
 }
 
