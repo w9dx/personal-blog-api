@@ -1,6 +1,10 @@
 import { ReturnDocument } from "mongodb";
-import { db } from "../server.js";
 
+/**
+ *  Get Article By Name
+ * @param {string} articleName
+ * @returns {Promise<import("../types/Article").Article>}
+ */
 export const getArticleByName = async (articleName) => {
   const article = await db
     .collection("articles")
@@ -8,11 +12,20 @@ export const getArticleByName = async (articleName) => {
   return article;
 };
 
+/**
+ *  Get All Posts
+ * @returns {Promise<import("../types/Article").Article[]>}
+ */
 export const getAll = async () => {
   const articles = await db.collection("articles").find().toArray();
   return articles;
 };
 
+/**
+ *
+ * @param {import("../types/Article").Article} article
+ * @returns {Promise<import("../types/Article").Article>}
+ */
 export const createArticle = async ({ name, content, title }) => {
   const newArticle = {
     name,

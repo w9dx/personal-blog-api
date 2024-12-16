@@ -5,7 +5,7 @@ import {
   getAll,
   getArticleByName,
   updateVote,
-} from "../database/article.js";
+} from "../database/articleModel.js";
 
 const articleRoutes = Router();
 
