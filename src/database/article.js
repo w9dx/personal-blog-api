@@ -8,6 +8,23 @@ export const getArticleByName = async (articleName) => {
   return article;
 };
 
+export const getAll = async () => {
+  const articles = await db.collection("articles").find().toArray();
+  return articles;
+};
+
+export const createArticle = async ({ name, content, title }) => {
+  const newArticle = {
+    name,
+    content,
+    title,
+    upvotes: 0,
+    comments: [],
+  };
+  const createdArticle = await db.collection("articles").insertOne(newArticle);
+  return createdArticle;
+};
+
 export const updateVote = async (articleName) => {
   const updatedArticle = db
     .collection("articles")
