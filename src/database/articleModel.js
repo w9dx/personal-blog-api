@@ -1,4 +1,5 @@
 import { ReturnDocument } from "mongodb";
+import { db } from "../server.js";
 
 /**
  *  Get Article By Name
